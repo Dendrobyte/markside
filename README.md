@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Markside
+
+It's my side of the internet! My name is Mark... get it?! GET IT?!
+
+Anyway this is the repository for my portfolio site, re-written in TypeScript for the fun of it. The below designs were the starting point, done in Adobe XD.
+
+![Main Page - Active Projects](/page_0.png)
+![Main Page - Inactive Projects](/page_1.png)
+![Main Page - Responsive Collapse](/page_3.png)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

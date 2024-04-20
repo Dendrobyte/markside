@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url("https://use.typekit.net/pzo7ugc.css");
+
+.league-spartan-regular {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 200;
+}
+
+.league-spartan-bold {
+  font-family: "League Spartan", sans-serif;
+  font-weight: 400;
+}
+
+.dovetail-title {
+  font-family: "dovetail-mvb", serif;
+  color: #1D4296;
+  font-style: normal;
+  font-weight: 200;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

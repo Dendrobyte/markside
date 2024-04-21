@@ -9,23 +9,27 @@ interface Env {
 async function getLatestVideoFromChannel(apiKey: string, channelId: string): Promise<string> {
 	let getUrl: string = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=date&type=video&maxResults=1`
 
-	await fetch(getUrl).then(resp => {
-		let data: any = resp.json();
-		let videoInformation: any = data.items[0];
-		let VIDEO_ID: string = videoInformation.videoId;
-		return `https://www.youtube.com/watch?v=${VIDEO_ID}`;
+	let data: any = await fetch(getUrl).then(resp => {
+		return resp.json()
 	}).catch((e) => {
-		return `Caught error: ${e}`;
+		return undefined
 	})
 
-	return "Issue occured, not found";
+	if (data === undefined) {
+		return "There was an error fetching this content"
+	}
+
+	let videoInformation: any = data.items[0].id;
+	let VIDEO_ID: string = videoInformation.videoId;
+	return `https://www.youtube.com/watch?v=${VIDEO_ID}`;
+
 
 }
 
 function getLatestVideoWithKeyword(apiKey: string, channelId: string, keyword: string): string {
 	// TODO: Implement to find last video with "VGT" in title, but that's all there really is up on Cowdino atm
 	// let resp: string = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=date&type=video&maxResults=10`
-	return "huzzah!"
+	return "Huzzah!"
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -40,7 +44,7 @@ export default {
 
 		switch (path) {
 			case '/health': {
-				return new Response('Healthy!', { status: 200 })
+				return new Response("Healthy!", { status: 200 })
 			}
 			case '/youtube_latest_lifestyle': {
 				let responseUrl: string = await getLatestVideoFromChannel(ytApiKey, "UCh7mi5sI3BSzKReLzXpgimA");

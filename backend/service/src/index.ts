@@ -1,4 +1,7 @@
-import { env } from 'node:process';
+// Define Env interface for environment variables
+interface Env {
+	'YOUTUBE_API_KEY': string
+}
 
 // In theory we could cache this response and only hit the API uniquely ever day by holding on to the timestamp
 // But I don't expect traffic all that much
@@ -25,11 +28,10 @@ function getLatestVideoWithKeyword(apiKey: string, channelId: string, keyword: s
 	return "huzzah!"
 }
 
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-	async fetch(req: Request) {
-		let ytApiKey: string | undefined = env["YOUTUBE_API_KEY"];
+	async fetch(req: Request, env: Env) {
+		let ytApiKey: string | undefined = env.YOUTUBE_API_KEY;
 		if (ytApiKey === undefined){
 			return new Response('YouTube API Key Undefined', { status: 404 });
 		}

@@ -51,7 +51,8 @@ export default {
 				return new Response(responseUrl, { status: 200 });
 			}
 			case '/youtube_latest_vgt': {
-				return getLatestVideoWithKeyword(ytApiKey, "UCNmheQMf9sK1Axv3NCEhbSA", "VGT")
+				let responseUrl: string = await getLatestVideoWithKeyword(ytApiKey, "UCNmheQMf9sK1Axv3NCEhbSA", "VGT")
+				return new Response(responseUrl, { status: 200 });
 			}
 			default: {
 				return new Response('Not found', { status: 404 });

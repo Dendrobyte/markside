@@ -11,7 +11,7 @@ function Home() {
                 </div>
                 
             </header>
-            <h1 className='league-spartan-regular'>This is a test of the spartan font</h1>
+            <h1 className='league-spartan-regular body-temp'>This website is under construction, check back on Monday!<br></br>You can find the old version <a href="https://www.markobacon.com/old">here</a>, but keep in mind it was made what feels like an eternity ago!</h1>
         </>
     )
 }

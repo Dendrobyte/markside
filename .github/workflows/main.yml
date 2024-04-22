@@ -26,10 +26,24 @@ jobs:
       - name: Builds static files for push
         run: npm run build
 
+      - name: Uploads artifact for use in deploy
+        uses: actions/upload-artifact@v4
+        with:
+          name: markside_static_files
+          path: build/
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Download the static build files from artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: markside_static_files
+
+      - name: Random ls
+        run: ls
+      
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

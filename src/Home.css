@@ -18,7 +18,7 @@
     padding-top: .05em;
 }
 
-.body-temp {
+.body-central-default {
     text-align: center;
     margin-top: 5%;
 }
@@ -85,4 +85,79 @@
     font-weight: 600;
     color: #1D4296;
     text-decoration: none;
+}
+
+.projects-container {
+    padding: .1em;
+}
+
+.project-tabs {
+    text-align: left;
+    display: block;
+}
+
+.project-tab-title {
+    font-family: "League Spartan", sans-serif;
+    font-size: 32px;
+    display: inline;
+    margin-right: .5em;
+}
+
+.project-tab-title:hover {
+    cursor: pointer;
+}
+
+.active-tab-title {
+    color: #1D4296;
+}
+
+.inactive-tab-title {
+    color: #7688B1;
+}
+
+.project-section { /* Section within a tab */
+    margin: 1em 0em;
+    text-align: left;
+}
+
+.project-title {
+    font-family: "League Spartan", sans-serif;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+/* Project Titles Clickable Classes */
+.project-title-link:link {
+    text-decoration: none;
+    color: #191919;
+}
+
+.project-title-link:visited {
+    text-decoration: none;
+    color: #191919;
+}
+
+.project-title-link:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #7688B1;
+}
+
+.project-title-link:active {
+    text-decoration: none;
+    color: #191919;
+}
+
+/* End of Project Titles */
+
+.project-desc { /* Matches .gray-league-paragraph | Generalize? */
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.project-subtext {
+    font-family: "League Spartan", sans-serif;
+    font-size: 18px;
+    font-weight: 100;
 }

@@ -1,22 +1,11 @@
 import './Home.css';
 import metaphorical_self_img from './img/metaphorical_self.jpg';
 import real_self_img from './img/real_self.jpg';
+import Projects from './markside_components/Projects';
 
 function Home() {
     return (
         <>  
-            <header>
-                <div className='primary-header '>
-                    <div className='header-gray-bg'>
-                        <h1 className='dovetail-title header-text'>Markside</h1>
-                    </div>
-                </div>
-                
-            </header>
-
-            { /* TODO: Yeet this */ }
-            <h1 className='league-spartan-regular body-temp'>This website is under construction, check back on Monday!<br></br>You can find the old version <a href="https://www.markobacon.com/old">here</a>, but keep in mind it was made what feels like an eternity ago!</h1>
-        
             <div className='middle-column'>
                 <div className='middle-top'>
                     <div className='blue-bubble self-pictures'>
@@ -38,9 +27,9 @@ function Home() {
                     </div>
                 </div>
                 <div className ='middle-bottom'>
-                    {
-                        // TODO: This ist he projects tab thing
-                    }
+                    <div className='blue-bubble'>
+                        <Projects />
+                    </div>
                 </div>
             </div>
         </>

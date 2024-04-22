@@ -1,0 +1,34 @@
+name: Build and Deploy Frontend
+
+on:
+  push:
+    branches: main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout latest code change
+        uses: actions/checkout@v2
+  
+      - name: Install relevant npm dependencies
+        run: npm install
+  
+      - name: Builds static files for push
+        run: npm run build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Install a local FTP client
+        run: sudo apt-get install -y lftp
+
+      - name: Deploy via FTP
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          lftp -c "open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER && mirror -R ./build /path/to/remote/directory"

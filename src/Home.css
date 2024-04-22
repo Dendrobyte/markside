@@ -18,7 +18,146 @@
     padding-top: .05em;
 }
 
-.body-temp {
+.body-central-default {
     text-align: center;
     margin-top: 5%;
+}
+
+.blue-bubble {
+    background-color: rgb(228, 233, 242);
+    padding: 1.5em;
+    border-radius: 1em;
+    margin: .5em;
+}
+
+/* TODO: Making this middle column reflexive so on certain width it just expans to 100%? */
+.middle-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+}
+
+.middle-top {
+    display: flex;
+    flex-direction: row;
+}
+
+.self-pictures {
+    width: 15%;
+}
+.self-pictures img {
+    width: 100%;
+}
+
+.self-pictures p {
+    text-align: center;
+    padding-top: .2em;
+    font-family: "dovetail-mvb", serif;
+    font-size: 20px;
+    color: rgb(112, 112, 112)
+}
+
+.who-am-i {
+    width: 85%;
+}
+
+.blue-league-title {
+    font-family: "League Spartan", sans-serif;
+    margin-bottom: .2em;
+    font-size: 44px;
+    font-weight: 400;
+    color: #1D4296;
+}
+
+.gray-league-paragraph {
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.league-p-bold {
+    font-weight: 600;
+}
+
+.league-p-clickable {
+    font-weight: 600;
+    color: #1D4296;
+    text-decoration: none;
+}
+
+.projects-container {
+    padding: .1em;
+}
+
+.project-tabs {
+    text-align: left;
+    display: block;
+}
+
+.project-tab-title {
+    font-family: "League Spartan", sans-serif;
+    font-size: 32px;
+    display: inline;
+    margin-right: .5em;
+}
+
+.project-tab-title:hover {
+    cursor: pointer;
+}
+
+.active-tab-title {
+    color: #1D4296;
+}
+
+.inactive-tab-title {
+    color: #7688B1;
+}
+
+.project-section { /* Section within a tab */
+    margin: 1em 0em;
+    text-align: left;
+}
+
+.project-title {
+    font-family: "League Spartan", sans-serif;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+/* Project Titles Clickable Classes */
+.project-title-link:link {
+    text-decoration: none;
+    color: #191919;
+}
+
+.project-title-link:visited {
+    text-decoration: none;
+    color: #191919;
+}
+
+.project-title-link:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #7688B1;
+}
+
+.project-title-link:active {
+    text-decoration: none;
+    color: #191919;
+}
+
+/* End of Project Titles */
+
+.project-desc { /* Matches .gray-league-paragraph | Generalize? */
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.project-subtext {
+    font-family: "League Spartan", sans-serif;
+    font-size: 18px;
+    font-weight: 100;
 }

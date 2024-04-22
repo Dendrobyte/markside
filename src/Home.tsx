@@ -24,6 +24,9 @@ function Home() {
                         <br></br><br></br>
                         I'm also self studying Japanese, a martial artist, sketching when I can, modeling and animating in Blender, meditating, gaming, creating videos, and a fan of the Oxford comma. And <a className='league-p-clickable' href="https://markbacon78.wordpress.com/">my WordPress Blog</a> has insights thoughts about what I'm working on. And sometimes just the world, or reality itself.</p>
 
+                        <br></br><br></br>
+                        <p className='project-subtext'>This website is currently a work in progress, responsiveness and two more sections inbound. Check back Friday! :D</p>
+
                     </div>
                 </div>
                 <div className ='middle-bottom'>

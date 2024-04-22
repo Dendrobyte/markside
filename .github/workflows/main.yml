@@ -43,9 +43,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: markside_static_files
+          path: static-build/
 
       - name: Random ls
-        run: ls
+        run: ls -R
       
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -53,5 +54,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: "build/"
+          local-dir: "static-build/"
           server-dir: "/"

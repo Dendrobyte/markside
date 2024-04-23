@@ -1,13 +1,30 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './Home.css';
 import metaphorical_self_img from './img/metaphorical_self.jpg';
 import real_self_img from './img/real_self.jpg';
 import Projects from './markside_components/Projects';
 
 function Home() {
+    let [lifestyleVideoId, setLifestyleVideoId] = useState('');
+
+    useEffect(() => {
+        axios.get('https://service.markbacon78.workers.dev/youtube_latest_lifestyle', {
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+                "Access-Control-Allow-Headers": "*",
+            }
+        }).then(res => {
+            console.log("response: " + res);
+            setLifestyleVideoId(res.data);
+        })
+    }, [lifestyleVideoId]);
+
     return (
         <>  
             <div className='middle-column'>
-                <div className='middle-top'>
+                <div className='middle-flex-row'>
                     <div className='blue-bubble self-pictures'>
                         <img src={real_self_img} alt='The Real Me'></img>
                         <p className='picture-subtitle'>The Real Me</p>
@@ -32,6 +49,23 @@ function Home() {
                 <div className ='middle-bottom'>
                     <div className='blue-bubble'>
                         <Projects />
+                    </div>
+                </div>
+                <div className='middle-flex-row'>
+                    <div className='blue-bubble half-container'>
+                        <h1 className='blue-league-title'>Misc Links</h1>
+                        <ul> { /* TODO: I could make this iterative? */ }
+                            <li className='misc-links-list-item'>- <a href="/not_available" className='misc-links-title'>Emergenshibe</a>, for when you need shibe support</li>
+                            <hr></hr>
+                            <li className='misc-links-list-item'>- <a href="http://markbacon78.wordpress.com/" className='misc-links-title'>My blog, Markside</a>, which for now is hosted on WordPress</li>
+                            <li className='misc-links-list-item'>- <a href="http://www.github.com/dendrobyte" className='misc-links-title'>GitHub</a> has effectively all the code for my projects, including this website!</li>
+                            <li className='misc-links-list-item'>- <a href="http://www.instagram.com/markbacon78" className='misc-links-title'>My Instagram</a>, though admittedly I'm not all that active aside from 5:30am wakeup stories</li>
+                        </ul>
+                    </div>
+                    <div className='blue-bubble half-container'>
+                        <h1 className='blue-league-title'>Latest YouTube Video</h1>
+                        <p className='gray-league-paragraph'>I make videos around what I do and what I work on, from updates on my latest development project to my progress in Spartan race training.</p>
+                        <iframe width="560" height="315" className='yt-video-embed' src={`https://www.youtube.com/embed/${lifestyleVideoId}?si=IE-zn4rxBTztQGT_`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
                     </div>
                 </div>
             </div>

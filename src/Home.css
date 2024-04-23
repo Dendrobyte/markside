@@ -207,5 +207,6 @@
 }
 
 .yt-video-embed {
-    margin: 2em 1em;
+    margin: 2em auto;
+    display: block;
 }

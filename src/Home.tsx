@@ -8,17 +8,15 @@ import Projects from './markside_components/Projects';
 function Home() {
     let [lifestyleVideoId, setLifestyleVideoId] = useState('');
 
-    useEffect(() => {
-        axios.get('https://service.markbacon78.workers.dev/youtube_latest_lifestyle', {
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
-                "Access-Control-Allow-Headers": "*",
-            }
-        }).then(res => {
-            setLifestyleVideoId(res.data);
-        })
-    }, [lifestyleVideoId]);
+    axios.get('https://service.markbacon78.workers.dev/youtube_latest_lifestyle', {
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
+            "Access-Control-Allow-Headers": "*",
+        }
+    }).then(res => {
+        setLifestyleVideoId(res.data);
+    })
 
     return (
         <>  

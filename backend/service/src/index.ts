@@ -18,11 +18,13 @@ async function getLatestVideoFromChannel(apiKey: string, channelId: string): Pro
 	if (data === undefined) {
 		return "There was an error fetching this content"
 	}
-
-	let videoInformation: any = data.items[0].id;
-	let VIDEO_ID: string = videoInformation.videoId;
-	return VIDEO_ID;
-
+	try {
+		let videoInformation: any = data.items[0].id;
+		let VIDEO_ID: string = videoInformation.videoId;
+		return VIDEO_ID;
+	} catch (err) {
+		return "Errored out with err " + err + ".\nData from api is: " + JSON.stringify(data)
+	}
 
 }
 

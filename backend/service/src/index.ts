@@ -21,7 +21,7 @@ async function getLatestVideoFromChannel(apiKey: string, channelId: string): Pro
 
 	let videoInformation: any = data.items[0].id;
 	let VIDEO_ID: string = videoInformation.videoId;
-	return `https://www.youtube.com/watch?v=${VIDEO_ID}`;
+	return VIDEO_ID;
 
 
 }
@@ -44,15 +44,27 @@ export default {
 
 		switch (path) {
 			case '/health': {
-				return new Response("Healthy!", { status: 200 })
+				return new Response("Healthy!", {
+					status: 200
+				})
 			}
 			case '/youtube_latest_lifestyle': {
 				let responseUrl: string = await getLatestVideoFromChannel(ytApiKey, "UCh7mi5sI3BSzKReLzXpgimA");
-				return new Response(responseUrl, { status: 200 });
+				let response = new Response(responseUrl, {
+					status: 200
+				});
+				response.headers.set("Access-Control-Allow-Origin", "*")
+                response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+				response.headers.set("Access-Control-Allow-Headers", "*")
+				return response
 			}
 			case '/youtube_latest_cowdino': {
 				let responseUrl: string = await getLatestVideoFromChannel(ytApiKey, "UCNmheQMf9sK1Axv3NCEhbSA");
-				return new Response(responseUrl, { status: 200 });
+				let response = new Response(responseUrl, { status: 200 });
+				response.headers.set("Access-Control-Allow-Origin", "*")
+                response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+				response.headers.set("Access-Control-Allow-Headers", "*")
+				return response
 			}
 			case '/youtube_latest_vgt': {
 				let responseUrl: string = await getLatestVideoWithKeyword(ytApiKey, "UCNmheQMf9sK1Axv3NCEhbSA", "VGT")

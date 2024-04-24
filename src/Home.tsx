@@ -1,26 +1,13 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 import './Home.css';
 import metaphorical_self_img from './img/metaphorical_self.jpg';
 import real_self_img from './img/real_self.jpg';
 import Projects from './markside_components/Projects';
+import YTEmbed from './markside_components/YTEmbed';
 
 function Home() {
-    let [lifestyleVideoId, setLifestyleVideoId] = useState('');
-
-    axios.get('https://service.markbacon78.workers.dev/youtube_latest_lifestyle', {
-        headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET,HEAD,POST,OPTIONS",
-            "Access-Control-Allow-Headers": "*",
-        }
-    }).then(res => {
-        setLifestyleVideoId(res.data);
-    })
-
     return (
         <>  
-            <div className='middle-column'>
+            <div className='middle-column container-body-width'>
                 <div className='middle-flex-row'>
                     <div className='blue-bubble self-pictures'>
                         <img src={real_self_img} alt='The Real Me'></img>
@@ -60,9 +47,7 @@ function Home() {
                         </ul>
                     </div>
                     <div className='blue-bubble half-container'>
-                        <h1 className='blue-league-title'>Latest YouTube Video</h1>
-                        <p className='gray-league-paragraph'>I make videos around what I do and what I work on, from updates on my latest development project to my progress in Spartan race training.</p>
-                        <iframe width="560" height="315" className='yt-video-embed' src={`https://www.youtube.com/embed/${lifestyleVideoId}?si=IE-zn4rxBTztQGT_`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+                        <YTEmbed />
                     </div>
                 </div>
             </div>

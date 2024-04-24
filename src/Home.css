@@ -35,9 +35,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
-    margin: auto;
 }
+
+/* For desktop screens */
+@media only screen and (min-width: 1080px) {
+    .container-body-width {
+      width: 60%;
+      margin: 0 auto; /* Center the container */
+    }
+  }
+  
+/* For smaller screens */
+@media only screen and (max-width: 1079px) {
+    .container {
+      width: 100%;
+    }
+  }
 
 .middle-flex-row {
     display: flex;

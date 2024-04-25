@@ -43,37 +43,63 @@
       width: 60%;
       margin: 0 auto; /* Center the container */
     }
-  }
+
+    .middle-flex-row {
+        display: flex;
+        flex-direction: row;
+    }
+}
   
 /* For smaller screens */
 @media only screen and (max-width: 1079px) {
     .container {
       width: 100%;
     }
-  }
 
-.middle-flex-row {
-    display: flex;
-    flex-direction: row;
+    .middle-flex-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+}
+.who-am-i {
+    flex-grow: 17;
 }
 
-.self-pictures {
-    width: 15%;
+/* For desktop, put images on the side */
+@media only screen and (min-width: 720px) {
+    .self-pictures {
+        flex-grow: 3;
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
-.self-pictures img {
-    width: 100%;
+  
+/* For mobile, set to full width. Prev restricted by container. */
+@media only screen and (max-width: 719px) {
+    .self-pictures {
+        display: flex;
+        width: 100%;
+    }
 }
 
-.self-pictures p {
+.self-picture-item {
+    margin: .1em auto;
+}
+
+.self-picture-item img {
+    display: inline-block;
+    max-width: 10em;
+    object-fit: contain;
+}
+
+.self-picture-item p {
     text-align: center;
     padding-top: .2em;
     font-family: "dovetail-mvb", serif;
     font-size: 20px;
     color: rgb(112, 112, 112)
-}
-
-.who-am-i {
-    width: 85%;
 }
 
 .blue-league-title {
@@ -180,7 +206,7 @@
 }
 
 .half-container {
-    flex-grow: 2;
+    flex-grow: 1;
 }
 
 .misc-links-title {
@@ -219,7 +245,21 @@
     margin: .4em 0em;
 }
 
+.yt-container {
+    height: 28em;
+}
+
 .yt-video-embed {
-    margin: 2em auto;
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto; */
+    margin: 1em auto;
     display: block;
+    width: 80%;
+    height: 60%;
+    /* Default YT embed dimensions
+    width: 560;
+    height: 315; 
+    */
 }

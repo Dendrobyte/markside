@@ -9,13 +9,6 @@ function Home() {
         <>  
             <div className='middle-column container-body-width'>
                 <div className='middle-flex-row'>
-                    <div className='blue-bubble self-pictures'>
-                        <img src={real_self_img} alt='The Real Me'></img>
-                        <p className='picture-subtitle'>The Real Me</p>
-                        <br></br>{ /* <hr></hr> TODO: See if I can get the original mockup text and image? */ }
-                        <img src={metaphorical_self_img} alt='Metaphorical Self'></img>
-                        <p className='picture-subtitle'>Metaphorical Self</p>
-                    </div>
                     <div className='blue-bubble who-am-i'>
                         <h1 className='blue-league-title'>Who am I?</h1>
                         <p className='gray-league-paragraph'>
@@ -27,7 +20,20 @@ function Home() {
 
                         <br></br><br></br>
                         <p className='project-subtext'>This website is currently a work in progress, but I wanted it live. I am working on making everything response this week.</p>
-
+                    </div>
+                    <div className='blue-bubble self-pictures'>
+                        <div className='self-picture-item'>
+                            <img src={real_self_img} alt='The Real Me'></img>
+                            <p className='picture-subtitle'>The Real Me</p>
+                        </div>
+                        
+                        <br></br>{ /* <hr></hr> TODO: See if I can get the original mockup text and image? */ }
+                        
+                        <div className='self-picture-item'>
+                            <img src={metaphorical_self_img} alt='Metaphorical Self'></img>
+                            <p className='picture-subtitle'>Metaphorical Self</p>
+                        </div>
+                        
                     </div>
                 </div>
                 <div className ='middle-bottom'>
@@ -46,7 +52,7 @@ function Home() {
                             <li className='misc-links-list-item'>- <a href="http://www.instagram.com/markbacon78" className='misc-links-title'>My Instagram</a>, though admittedly I'm not all that active aside from 5:30am wakeup stories</li>
                         </ul>
                     </div>
-                    <div className='blue-bubble half-container'>
+                    <div className='blue-bubble yt-container'>
                         <YTEmbed />
                     </div>
                 </div>

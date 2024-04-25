@@ -20,7 +20,7 @@ function YTEmbed() {
     <>
         <h1 className='blue-league-title'>Latest YouTube Video</h1>
         <p className='gray-league-paragraph'>I make videos around what I do and what I work on, from updates on my latest development project to my progress in Spartan race training.</p>
-        <iframe width="560" height="315" className='yt-video-embed' src={`https://www.youtube.com/embed/${lifestyleVideoId}?si=IE-zn4rxBTztQGT_`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <iframe className='yt-video-embed' src={`https://www.youtube.com/embed/${lifestyleVideoId}?si=IE-zn4rxBTztQGT_`} title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
     </>
     )
 }

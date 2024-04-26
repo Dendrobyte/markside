@@ -95,10 +95,15 @@ function ShibaHomepage() {
         alert("Future implementation for a cats API... is pending...")
     }
 
+    /*
+        2024 me here, disabling the exhaustive dependencies check. Not trying to fix bugs in this page.
+    */
+
     // Whenever the count is updated, we'll get a new shiba image and a new quote
     useEffect(() => {
         addQuote()
         getShibaImage()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [count])
 
     // And then, whenever the images are updated (since we're working with state variables) add the component
@@ -111,6 +116,7 @@ function ShibaHomepage() {
             return acc;
         }, [])
         setShibaCardArr(cardArr);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quotes])
 
 

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import config from './config.json';
 import ShibaCard from './ShibaCard';
 import './shibastyles.css';
 
@@ -63,7 +62,7 @@ function ShibaHomepage() {
         axios.get(quoteUrl, {
             'headers': {
                 'X-RapidAPI-Host': 'quotes15.p.rapidapi.com',
-                'X-RapidAPI-Key': config.QUOTES_API_KEY // You'll have to do this one on your own! Rapid API is the site, just make an account.
+                'X-RapidAPI-Key': process.env.REACT_APP_QUOTES_API_KEY
             }
           })
         .then((response) => {

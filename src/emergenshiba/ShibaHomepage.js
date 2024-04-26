@@ -71,7 +71,6 @@ function ShibaHomepage() {
             return;
         })
         .catch((err) => {
-            alert("Error fetching a quote :( Please refresh")
             console.log(err)
             return;
         })

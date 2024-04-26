@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import quotes_blob from './quotes.json';
 import ShibaCard from './ShibaCard';
 import './shibastyles.css';
 
@@ -16,13 +17,13 @@ import './shibastyles.css';
 function ShibaHomepage() {
     // Respective API calls
     const shibaBaseUrl = "https://shibe.online/api/shibes?count=20";
-    const quoteUrl = "https://quotes15.p.rapidapi.com/quotes/random/";
+    const all_quotes = quotes_blob.quotes
     
     const [shibaCardArr, setShibaCardArr] = useState([])
     const [shibaImgArr, setShibaImgArr] = useState([])
     const [quotes, setQuotes] = useState([])
     const [count, setCount] = useState(2);
-    const [summonText, setSummonText] = useState('Summon Another Shiba');
+    const [summonText, setSummonText] = useState('Summon A Shiba');
     const titles = ['The Vanguard', 'Second in Command', 'The Backup', 'The Intelligence Leader', 'The Apprentice', 'Along for the ride...']
 
     // Get a new random shiba image and add it to the shiba img array
@@ -55,38 +56,43 @@ function ShibaHomepage() {
             return;
 
     }
+    // The quotes API I was using was super sus, and other ones are $$$$ so we're just going to do this from hardcoded possibilities
+    // - 2024 Mark
+    // // Retrieve initial set of quotes
+    // // We're fine to just hold them in the array since we get like 50 at a time
+    // const addQuote = () => {
 
-    // Retrieve initial set of quotes
-    // We're fine to just hold them in the array since we get like 50 at a time
-    const addQuote = () => {
-        axios.get(quoteUrl, {
-            'headers': {
-                'X-RapidAPI-Host': 'quotes15.p.rapidapi.com',
-                'X-RapidAPI-Key': process.env.REACT_APP_QUOTES_API_KEY
-            }
-          })
-        .then((response) => {
-            let newQuote = {quote: response.data.content, author: response.data.originator.name}
-            setQuotes([...quotes, newQuote])
-            return;
-        })
-        .catch((err) => {
-            console.log(err)
-            console.log("The key BTW is: " + process.env.REACT_APP_QUOTES_API_KEY)
-            return;
-        })
-    }
+    //     axios.get(quoteUrl, {
+    //         'headers': {
+    //             'X-RapidAPI-Host': 'quotes15.p.rapidapi.com',
+    //             'X-RapidAPI-Key': process.env.REACT_APP_QUOTES_API_KEY
+    //         }
+    //       })
+    //     .then((response) => {
+    //         let newQuote = {quote: response.data.content, author: response.data.originator.name}
+    //         setQuotes([...quotes, newQuote])
+    //         return;
+    //     })
+    //     .catch((err) => {
+    //         console.log(err)
+    //         console.log("The key BTW is: " + process.env.REACT_APP_QUOTES_API_KEY)
+    //         return;
+    //     })
+    // }
 
     // Function to trigger when the summon shiba button is clicked
     let summonShiba = (e) => {
         
-        if (count > 6) {
+        if (count > 7) {
             setSummonText("Don't Hoard")
             alert("You can't have all the shibas to yourself!")
             return
         }
         else if (count > 3) {
             setSummonText("You need MORE Shibas?!")
+        }
+        else if (count > 0) {
+            setSummonText("Summon Another Shiba")
         }
         setCount(count + 1)
     }
@@ -101,7 +107,8 @@ function ShibaHomepage() {
 
     // Whenever the count is updated, we'll get a new shiba image and a new quote
     useEffect(() => {
-        addQuote()
+        let randQuoteNum = Math.floor(Math.random() * all_quotes.length)
+        setQuotes([...quotes, all_quotes[randQuoteNum] ])
         getShibaImage()
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [count])
@@ -122,7 +129,6 @@ function ShibaHomepage() {
 
     // Check if we're on a mobile device or something
     const isMobile = useMediaQuery({ query: '(max-width: 480px)' })
-
     return <>
         <div className="container">
             <div className="page-title">
@@ -144,8 +150,9 @@ function ShibaHomepage() {
             </div>
 
             <div className="footer">
-                <p className="footer-text">Shibes courtesy of <a href="https://shibe.online">shibe.online</a> by <a href="https://twitter.com/covoxkid/">@covoxkid</a></p>
-                <p className="footer-text">Quotes courtesy of <a href="https://rapidapi.com/martin.svoboda/api/quotes15/">this random API</a> (sorry if the quotes are a little weird)</p>
+                <p>Shibes courtesy of <a href="https://shibe.online">shibe.online</a> by <a href="https://twitter.com/covoxkid/">@covoxkid</a></p>
+                <p>Quotes generated via ChatGPT, so their accuracy may waver.</p>
+                <p>In 2020 I didn't make the page responsive, but it's still fun! Not interested in reviving this completely though, so it's effectively in its 2020 state.</p>
             </div>
         </div>
     </>

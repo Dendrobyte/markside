@@ -10,7 +10,7 @@ function ShibaCard({ title, imgUrl, quote, mobile}) {
             <img className="card-image" src={imgUrl} alt="Requesting shiba...."></img>
             <div className="card-quote-container">
                 <p className="card-quote-content">{ quote.quote }</p>
-                <p className="card-quote-author">- {quote.author }</p>
+                <p className="card-quote-author">- { quote.author }</p>
             </div>
         </div>
     </>

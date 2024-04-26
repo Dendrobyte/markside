@@ -11,10 +11,15 @@ body {
 
 .page-title {
     text-align: center;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    margin: 1em;
 }
 
 .page-title-subtitle {
     font-size: 16px;
+    font-weight: 300;
 }
 
 .page-title-subtitle .smallText {
@@ -110,6 +115,7 @@ body {
 
 .card-quote-container {
     text-align: left;
+    padding: 1em;
 }
 
 .card-quote-content {
@@ -124,11 +130,14 @@ body {
 
 /* Footer Styles */
 .footer {
-    border-radius: 10px;
-    width: 60%;
     margin: auto;
+    padding: 1em;
+    background-color: #1D4296;
 }
 
-.footer-text {
-    font-size: 12px;
+.footer p {
+    font-family: "League Spartan", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: aliceblue;
 }

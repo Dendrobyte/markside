@@ -44,7 +44,7 @@ function Home() {
                     <div className='blue-bubble half-container'>
                         <h1 className='blue-league-title'>Misc Links</h1>
                         <ul> { /* TODO: I could make this iterative? */ }
-                            <li className='misc-links-list-item'>- <a href="/not_available" className='misc-links-title'>Emergenshibe</a>, for when you need shibe support</li>
+                            <li className='misc-links-list-item'>- <a href="/emergeshibe" className='misc-links-title'>Emergenshibe</a>, for when you need shibe support</li>
                             <hr></hr>
                             <li className='misc-links-list-item'>- <a href="http://markbacon78.wordpress.com/" className='misc-links-title'>My blog, Markside</a>, which for now is hosted on WordPress</li>
                             <li className='misc-links-list-item'>- <a href="http://www.github.com/dendrobyte" className='misc-links-title'>GitHub</a> has effectively all the code for my projects, including this website!</li>

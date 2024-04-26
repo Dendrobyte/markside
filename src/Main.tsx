@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import ShibaHome from './emergenshiba/ShibaHome';
+import ShibaHomepage from './emergenshiba/ShibaHomepage';
 import Home from './Home';
 import Unavailable from './markside_components/Unavailable';
 
@@ -21,7 +21,7 @@ function Main() {
 
           <Route path="/not_available" Component={Unavailable} />
 
-          <Route path="/emergenshibe" Component={ShibaHome} />
+          <Route path="/emergenshibe" Component={ShibaHomepage} />
 
         </Routes>
       </Router>

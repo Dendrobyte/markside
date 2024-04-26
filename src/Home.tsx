@@ -19,7 +19,6 @@ function Home() {
                         I'm also self studying Japanese, a martial artist, sketching when I can, modeling and animating in Blender, meditating, gaming, creating videos, and a fan of the Oxford comma. And <a className='league-p-clickable' href="https://markbacon78.wordpress.com/">my WordPress Blog</a> has insights thoughts about what I'm working on. And sometimes just the world, or reality itself.</p>
 
                         <br></br><br></br>
-                        <p className='project-subtext'>This website is currently a work in progress, but I wanted it live. I am working on making everything response this week.</p>
                     </div>
                     <div className='blue-bubble self-pictures'>
                         <div className='self-picture-item'>
@@ -27,7 +26,7 @@ function Home() {
                             <p className='picture-subtitle'>The Real Me</p>
                         </div>
                         
-                        <br></br>{ /* <hr></hr> TODO: See if I can get the original mockup text and image? */ }
+                        <br></br>
                         
                         <div className='self-picture-item'>
                             <img src={metaphorical_self_img} alt='Metaphorical Self'></img>

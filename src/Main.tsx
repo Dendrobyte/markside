@@ -7,7 +7,7 @@ function Main() {
   return (
     <>
       <header>
-          <div className='primary-header '>
+          <div className='primary-header banner-bg-image'>
               <div className='header-gray-bg'>
                   <h1 className='dovetail-title header-text'>Markside</h1>
               </div>
@@ -25,6 +25,16 @@ function Main() {
 
         </Routes>
       </Router>
+
+      <footer>
+          <div className='banner-bg-image'>
+              <div className='footer-gray-bg'>
+                  <h1 className='footer-text'>
+                    This website was designed in Adobe XD and written in React/TypeScript by Mark Bacon (Dendrobyte), 2024.
+                  </h1>
+              </div>
+          </div>
+      </footer>
     </>
   );
 }

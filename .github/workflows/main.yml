@@ -25,6 +25,8 @@ jobs:
   
       - name: Builds static files for push
         run: npm run build
+        env:
+          REACT_APP_QUOTES_API_KEY: ${{ secrets.QUOTES_API_KEY }}
         
       - name: Uploads artifact for use in deploy
         uses: actions/upload-artifact@v4

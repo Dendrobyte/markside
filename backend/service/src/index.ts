@@ -1,13 +1,12 @@
+import { DurableObject } from "cloudflare:workers"
+
 // Define Env interface for environment variables
 interface Env {
 	'YOUTUBE_API_KEY': string
 }
 
-// In theory we could cache this response and only hit the API uniquely ever day by holding on to the timestamp
-// But I don't expect traffic all that much
-// This returns the video URL
 async function getLatestVideoFromChannel(apiKey: string, channelId: string): Promise<string> {
-	return "UaF7JIT3hXI" //- this needs to be cached, not sure why it's pinging so much
+	// return "UaF7JIT3hXI" //- this needs to be cached, not sure why it's pinging so much
 	let getUrl: string = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=date&type=video&maxResults=1`
 
 	let data: any = await fetch(getUrl).then(resp => {
@@ -36,7 +35,15 @@ function getLatestVideoWithKeyword(apiKey: string, channelId: string, keyword: s
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default {
+export class Service extends DurableObject {
+	ctx: DurableObjectState;
+	constructor(ctx: DurableObjectState, env: Env) {
+		super(ctx, env)
+		this.ctx = ctx;
+		this.env = env;
+	}
+
+	// @ts-ignore -- I still want env
 	async fetch(req: Request, env: Env) {
 		let ytApiKey: string | undefined = env.YOUTUBE_API_KEY;
 		if (ytApiKey === undefined){
@@ -46,20 +53,36 @@ export default {
 		let url = new URL(req.url);
 		let path = url.pathname.replace(/[/]$/, '');
 
+		// Check stored date to see if we should use storage
+		let useCache: boolean = false
+		let currTime: Date = new Date();
+		let storedDate: Date | undefined = await this.ctx.storage.get("lastCheckedDate")
+		if (storedDate !== undefined) {
+			const dayDiff: number = Math.ceil((currTime.getTime() - storedDate.getTime()) / (1000 * 60 * 60 * 24));
+			useCache = dayDiff >= 1 ? false : true;
+		}
+
 		switch (path) {
 			case '/health': {
-				return new Response("Healthy!", {
+				let date = await this.ctx.storage.get("lastCheckedDate")
+				return new Response(`Healthy! Date in ctx: ${date}`, {
 					status: 200
 				})
 			}
+
+			// TODO: there is some mad refactoring possible here lol
 			case '/youtube_latest_lifestyle': {
-				let responseUrl: string = await getLatestVideoFromChannel(ytApiKey, "UCh7mi5sI3BSzKReLzXpgimA");
-				let response = new Response(responseUrl, {
+				let channelId: string = "UCh7mi5sI3BSzKReLzXpgimA"
+				// Check request context for url
+
+				let responseVideoId: string | undefined = useCache ? await this.ctx.storage.get(channelId) : await getLatestVideoFromChannel(ytApiKey, channelId);
+				let response = new Response(responseVideoId, {
 					status: 200
 				});
 				response.headers.set("Access-Control-Allow-Origin", "*")
                 response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 				response.headers.set("Access-Control-Allow-Headers", "*")
+				this.ctx.storage.put(channelId, responseVideoId)
 				return response
 			}
 			case '/youtube_latest_cowdino': {
@@ -78,5 +101,5 @@ export default {
 				return new Response('Not found', { status: 404 });
 			}
 		}
-	},
+	}
 };

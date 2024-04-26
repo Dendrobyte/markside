@@ -151,7 +151,7 @@ function ShibaHomepage() {
 
             <div className="footer">
                 <p>Shibes courtesy of <a href="https://shibe.online">shibe.online</a> by <a href="https://twitter.com/covoxkid/">@covoxkid</a></p>
-                <p>Quotes generated via ChatGPT, so their accuracy may waver.</p>
+                <p>Quotes generated via ChatGPT, so their accuracy may waver and it may be repetitive.</p>
                 <p>In 2020 I didn't make the page responsive, but it's still fun! Not interested in reviving this completely though, so it's effectively in its 2020 state.</p>
             </div>
         </div>

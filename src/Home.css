@@ -63,6 +63,7 @@
     }
     
 }
+
 .who-am-i {
     flex-grow: 17;
 }
@@ -158,6 +159,37 @@
     color: #7688B1;
 }
 
+/* Mobile project nav menu */
+
+.mobile-project-tab-title {
+    font-family: "League Spartan", sans-serif;
+    font-size: 28px;
+    padding: .3em;
+    margin: .1em 0;
+    border-radius: 10px;
+}
+
+.mobile-project-tab-title:hover {
+    cursor: pointer;
+}
+
+.mobile-active-tab-selection {
+    color: #fff;
+    background-color: #325199;
+}
+
+.mobile-inactive-tab-selection {
+    color: rgb(92, 92, 92);
+    background-color: rgb(199, 203, 210);
+}
+
+.mobile-inactive-tab-selection:hover {
+    color: rgb(58, 58, 58);
+    background-color: rgb(153, 156, 162);
+}
+
+/* End of mobile project nav menu */
+
 .project-section { /* Section within a tab */
     margin: 1em 0em;
     text-align: left;
@@ -250,16 +282,8 @@
 }
 
 .yt-video-embed {
-    /* position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto; */
     margin: 1em auto;
     display: block;
     width: 80%;
     height: 60%;
-    /* Default YT embed dimensions
-    width: 560;
-    height: 315; 
-    */
 }

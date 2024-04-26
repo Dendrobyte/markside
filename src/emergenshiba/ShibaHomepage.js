@@ -72,6 +72,7 @@ function ShibaHomepage() {
         })
         .catch((err) => {
             console.log(err)
+            console.log("The key BTW is: " + process.env.REACT_APP_QUOTES_API_KEY)
             return;
         })
     }

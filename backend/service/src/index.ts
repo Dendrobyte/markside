@@ -1,8 +1,8 @@
-import { DurableObject } from "cloudflare:workers"
-
 // Define Env interface for environment variables
 interface Env {
 	'YOUTUBE_API_KEY': string
+	'LAST_CHECKED_DATE_TS': number
+	'LIFESTYLE_VID_ID': string
 }
 
 async function getLatestVideoFromChannel(apiKey: string, channelId: string): Promise<string> {
@@ -35,15 +35,8 @@ function getLatestVideoWithKeyword(apiKey: string, channelId: string, keyword: s
 }
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export class Service extends DurableObject {
-	ctx: DurableObjectState;
-	constructor(ctx: DurableObjectState, env: Env) {
-		super(ctx, env)
-		this.ctx = ctx;
-		this.env = env;
-	}
+export default {
 
-	// @ts-ignore -- I still want env
 	async fetch(req: Request, env: Env) {
 		let ytApiKey: string | undefined = env.YOUTUBE_API_KEY;
 		if (ytApiKey === undefined){
@@ -55,17 +48,22 @@ export class Service extends DurableObject {
 
 		// Check stored date to see if we should use storage
 		let useCache: boolean = false
-		let currTime: Date = new Date();
-		let storedDate: Date | undefined = await this.ctx.storage.get("lastCheckedDate")
-		if (storedDate !== undefined) {
-			const dayDiff: number = Math.ceil((currTime.getTime() - storedDate.getTime()) / (1000 * 60 * 60 * 24));
-			useCache = dayDiff >= 1 ? false : true;
+		let currTime: number = (new Date()).getTime() / 1000;
+		let storedDate: number = env.LAST_CHECKED_DATE_TS
+		if (storedDate === undefined) {
+			env.LAST_CHECKED_DATE_TS = currTime
 		}
+
+		const timeDiff: number = Math.ceil((currTime - env.LAST_CHECKED_DATE_TS));
+		if (timeDiff > 86400) {
+			env.LAST_CHECKED_DATE_TS = currTime
+		}
+		useCache = timeDiff >= 86400 ? false : true;
 
 		switch (path) {
 			case '/health': {
-				let date = await this.ctx.storage.get("lastCheckedDate")
-				return new Response(`Healthy! Date in ctx: ${date}`, {
+				let date = env.LAST_CHECKED_DATE_TS
+				return new Response(`Healthy! Date in env: ${date} and usecache is ${useCache} while current vid thing is ${env.LIFESTYLE_VID_ID}`, {
 					status: 200
 				})
 			}
@@ -73,16 +71,20 @@ export class Service extends DurableObject {
 			// TODO: there is some mad refactoring possible here lol
 			case '/youtube_latest_lifestyle': {
 				let channelId: string = "UCh7mi5sI3BSzKReLzXpgimA"
-				// Check request context for url
 
-				let responseVideoId: string | undefined = useCache ? await this.ctx.storage.get(channelId) : await getLatestVideoFromChannel(ytApiKey, channelId);
+				// In case of resets or anything
+				useCache = env.LIFESTYLE_VID_ID === undefined ? false : useCache
+
+				let responseVideoId: string = useCache ? env.LIFESTYLE_VID_ID : await getLatestVideoFromChannel(ytApiKey, channelId);
 				let response = new Response(responseVideoId, {
 					status: 200
 				});
+				if (useCache === false) {
+					env.LIFESTYLE_VID_ID = responseVideoId // Update it
+				}
 				response.headers.set("Access-Control-Allow-Origin", "*")
                 response.headers.set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
 				response.headers.set("Access-Control-Allow-Headers", "*")
-				this.ctx.storage.put(channelId, responseVideoId)
 				return response
 			}
 			case '/youtube_latest_cowdino': {

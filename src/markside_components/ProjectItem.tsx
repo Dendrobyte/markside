@@ -72,7 +72,7 @@ export const ALL_PROJECT_ITEMS: Map<string, JSX.Element[]> = new Map<string, JSX
         />,
         <ProjectItem
             title="RecipeBox (2021)"
-            description={["A", "full stack web application", "built with a React front-end and generic Node backend", "built with 4 others.", "Our intention was to", "make recipe sharing easy and focused for users of all demographics,", "without getting bogged down by a 10 minute read before you access the recipe itself."]}
+            description={["A", "full stack web application", "built with a React front-end and generic Node backend", "alongside with 4 others.", "Our intention was to", "make recipe sharing easy and focused for users of all demographics,", "without getting bogged down by a 10 minute read before you access the recipe itself."]}
             subtext={undefined}
             link="https://github.com/amn493/RecipeBox"
         />,

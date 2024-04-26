@@ -7,7 +7,7 @@ interface Env {
 // But I don't expect traffic all that much
 // This returns the video URL
 async function getLatestVideoFromChannel(apiKey: string, channelId: string): Promise<string> {
-	// return "UaF7JIT3hXI" - this needs to be cached, not sure why it's pinging so much
+	return "UaF7JIT3hXI" //- this needs to be cached, not sure why it's pinging so much
 	let getUrl: string = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet&order=date&type=video&maxResults=1`
 
 	let data: any = await fetch(getUrl).then(resp => {
@@ -42,6 +42,7 @@ export default {
 		if (ytApiKey === undefined){
 			return new Response('YouTube API Key Undefined', { status: 404 });
 		}
+
 		let url = new URL(req.url);
 		let path = url.pathname.replace(/[/]$/, '');
 

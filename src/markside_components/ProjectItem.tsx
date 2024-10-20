@@ -39,25 +39,25 @@ export default ProjectItem;
 export const ALL_PROJECT_ITEMS: Map<string, JSX.Element[]> = new Map<string, JSX.Element[]>([
     ["Active Projects", [
         <ProjectItem
+            title="Infinite Game"
+            description={["A", "full stack web application", "built to empower people to be players in their own lives,", "creating rules and systems around their ultimate achievements", "in a world full of distractions"]}
+            subtext="One feature (Finite Vault) was rolled out and the full site is being developed (repo temporarily private). MVP will have three additional features."
+            link="https://infinitegame.markobacon.com/"
+        />,
+        <ProjectItem
         title="Oink in the Chamber"
         description={["A", "multiplayer game", "built in", "Godot", "with a server built using", "Go", "from the ground up. Focuses on simple gameplay for friends to easily get together and have fun in a slightly competitive environment."]}
         subtext={undefined}
         link="https://github.com/Dendrobyte/OinkITC"
-        />,
-        <ProjectItem
-            title="Infinite Game"
-            description={["A", "full stack web application", "built to empower people to be players in their own lives,", "creating rules and systems around their ultimate achievements", "in a world full of distractions"]}
-            subtext="This project is in a pre-development and conceptual phase (Apr 2024)."
-            link="/not_available"
-        />,
-        <ProjectItem
-            title="Oink 2.0"
-            description={["A Minecraft server", "focused on giving people an environment to relax and hang out", "in a game of infinite possibilities."]}
-            subtext="This is a continuation of a Minecraft server I began in 2015, which is also the catalyst for teaching myself to code! Oink 2.0 started in January 2024 to revive what I let go of when I began university."
-            link="http://www.redstoneoinkcraft.com/"
         />
     ]],
     ["Inactive Projects",[
+        <ProjectItem
+            title="Oink 2.0"
+            description={["A Minecraft server", "focused on giving people an environment to relax and hang out", "in a game of infinite possibilities."]}
+            subtext="This is a continuation of a Minecraft server I began in 2015, which is also the catalyst for teaching myself to code! I set up a home server for this and every blue moon will do some plugin development."
+            link="http://www.redstoneoinkcraft.com/"
+        />,
         <ProjectItem
             title="Tetris Clone (Dec '23 - Jan '24)"
             description={["A 3 week project to give myself", "an introduction to the Godot game engine", "by re-developing a game I am very familiar with (I… love Tetris)."]}

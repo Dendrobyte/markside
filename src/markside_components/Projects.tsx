@@ -41,7 +41,7 @@ function Projects() {
             <div className='project-list'>
                 {ALL_PROJECT_ITEMS.get(activeTab)}
                 <hr></hr>
-                <p className='project-subtext'>Project titles are clickable! Most go to GitHub repositories.</p>
+                <p className='project-subtext'>Project titles are clickable!</p>
             </div>
         </div>
     )

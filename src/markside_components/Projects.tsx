@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { ALL_PROJECT_ITEMS } from "./ProjectItem";
 
-const validTabs: string[] = ["Active Projects", "Inactive Projects"];
+const validTabs: string[] = ["Current", "General/Web Dev", "Games"];
 
 // TODO: useEffect to re-render when active tab changes...? i.e. dependency array of [activeTab] I think?
 
 function Projects() {
     // Parent projects component, handles clicking etc.
     // TODO: Better way than just relying on the string name?
-    const [activeTab, setActiveTab] = useState("Active Projects")
+    const [activeTab, setActiveTab] = useState("Current")
 
     let isMobile: boolean = useMediaQuery( {query: "(max-width: 720px)"})
 
@@ -24,7 +24,7 @@ function Projects() {
                     // Sort out the tab titles
                     validTabs.map(el => {
                         const activeClass: string = el === activeTab ? 'active-tab-title' : 'inactive-tab-title'
-                        return <div className={`project-tab-title ${activeClass}`} onClick={() => setActiveTab(el)}>{el}</div>
+                        return <div className={`project-tab-title ${activeClass}`} onClick={() => setActiveTab(el)}>{'↪ ' + el}</div>
                     })
                 :
                     /* Background color changing selections for mobile */
@@ -40,8 +40,7 @@ function Projects() {
                 </div>
             <div className='project-list'>
                 {ALL_PROJECT_ITEMS.get(activeTab)}
-                <hr></hr>
-                <p className='project-subtext'>Project titles are clickable!</p>
+                {/* <p className='project-subtext'>Project titles link to active pages (repositories, deployments, downloads).</p> */}
             </div>
         </div>
     )

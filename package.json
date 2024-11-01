@@ -14,6 +14,7 @@
     "axios": "^1.6.8",
     "crypto": "^1.0.1",
     "fetch": "^1.1.0",
+    "markside": "file:",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^10.0.0",

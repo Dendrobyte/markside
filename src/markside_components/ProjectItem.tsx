@@ -81,7 +81,7 @@ export const ALL_PROJECT_ITEMS: Map<string, JSX.Element[]> = new Map<string, JSX
     ]],
     ["Games", [
         <ProjectItem
-            title="TypeSkiier"
+            title="TypeSkiier (Jan-Feb '26)"
             description={["A 2D typing game", "written in Lua using the Love2D engine.", "Still in pre-development, so no final version uploaded yet. Uses Kenney's asset pack(s)."]}
             subtext="I started it a while ago, but it's on pause while I get my feet a little wetter with Unity by working on Wallglider."
             link="https://dendrobyte.itch.io/typeskiier"

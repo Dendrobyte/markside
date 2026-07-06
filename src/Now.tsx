@@ -6,13 +6,13 @@ function Now() {
                 <div className='blue-bubble who-am-i'>
                     <h1 className='blue-league-title'>July 5, '26</h1>
                     <p className='gray-league-paragraph-large'>
-                        I've jsut organized some thoughts and feeling more confident finding what I want going forward. Amongst existential angst wondering if I should go back to school for nursing or teaching, I'm realizing I want to spend my living and breathing time creating. Not consuming.
+                        I've just organized some thoughts and feeling more confident finding what I want going forward. Amongst existential angst wondering if I should go back to school for nursing or teaching, I'm realizing I want to spend my living and breathing time creating. Not consuming.<br></br>
 
-                        I want to help people, live independently, to express myself, and to lead a community that's at the center of it all.
+                        I want to help people, live independently, to express myself, and to lead a community that's at the center of it all.<br></br>
 
-                        I've been reading <i>That Will Never Work</i> which is about the founding of Netflix, and ultimately I do really want to make my own thing. I just need to continue believing I can do so.
+                        I've been reading <i>That Will Never Work</i> which is about the founding of Netflix, and ultimately I do really want to make my own thing. I just need to continue believing I can do so.<br></br>
 
-                        I've been going to jiu jitsu 8x a week, often twice a day- though at the sacrifice of my morning game development. Moving forward with a "no zero days" policy on that, just to touch things up. Making sure that I'm not blind to the next opportunity when it matters the most.
+                        I've been going to jiu jitsu 8x a week, often twice a day- though at the sacrifice of my morning game development. Moving forward with a "no zero days" policy on that, just to touch things up. Making sure that I'm not blind to the next opportunity when it matters the most.<br></br>
 
                         And of course, continue itch piloting.
                     </p>

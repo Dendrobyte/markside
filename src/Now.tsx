@@ -6,11 +6,11 @@ function Now() {
                 <div className='blue-bubble who-am-i'>
                     <h1 className='blue-league-title'>Oct 22, '26</h1>
                     <p className='gray-league-paragraph-large'>
-                        We're back to itch piloting, and I'm calling my unemployed a "creative sabbatical". Sleeper laid off a handful of people recently, myself one of them.
+                        We're back to itch piloting, and I'm calling my current unemployment status a "creative sabbatical". Sleeper laid off a handful of people recently, myself one of them.<br></br>
 
-                        I haven't felt much of a spark with programming lately, so I decided I'm going to take (at least) two months to work on my own endeavors.
+                        I haven't felt much of a spark with programming lately, so I decided I'm going to take (at least) two months to work on my own endeavors.<br></br>
 
-                        This weekend, I'm at Lightbox and just one evening in I feel like I've found the people I need to surround myself with more often.
+                        This weekend, I'm at Lightbox and just one evening in I feel like I've found the people I need to surround myself with more often.<br></br>
                     </p>
                 </div>
                 <div className='blue-bubble who-am-i'>

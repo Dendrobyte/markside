@@ -8,22 +8,23 @@ function Home() {
     return (
         <>  
             <div className='middle-column container-body-width'>
+                <div className='blue-bubble'>
+                    <h1 className='blue-league-title'>In summary, I am</h1>
+                    <p className='gray-league-paragraph'>
+                        A storyteller,
+                        a backend software engineer,
+                        working on games,
+                        working on Harbinger,
+                        competing in BJJ,
+                        making YouTube videos,
+                        pursuing art.
+                        I have one virtue, eight values, and eight entities I surrender to (the 16 Hues).
+                        <br></br>
+                        <br></br>
+                        Check out my projects and work below the longass description of myself :)
+                        </p>
+                </div>
                 <div className='middle-flex-row'>
-                    <div className='blue-bubble who-am-i'>
-                        <h1 className='blue-league-title'>Who am I?</h1>
-                        <p className='gray-league-paragraph'>
-                        By day, I am a <span className='league-p-bold'>backend <a className='league-p-clickable' href="http://www.linkedin.com/in/markbacon78">Software Engineer</a></span> based in Seattle/ Check out my <a className='league-p-clickable' href="https://www.markobacon.com/now">/now</a> page to see what I'm working on currently
-                        <br></br>
-                        <br></br>
-                        I focus on <span className='league-p-bold'>building human-centric things</span> grounded in meticulous design and technical challenge. Through games and apps I <span className='league-p-bold'>connect users and work on thoughtful functionality</span>. I enjoy working on <span className='league-p-bold'>designing and implementing systems that make users' lives easier</span> and more manageable without getting caught up in the details. In games and through gamification, I seek to leverage multiplayer accountability and fun to bring people back into a world lacking connection- and often humanity.
-                        <br></br>
-                        <br></br>
-                        I compete in Brazilian Jiu Jitsu (blue belt), work on a variety of game development prototypes, keep up to date with linguistic research and philosophy papers, trail run, practice MMA, meditate, and continue the lifelong pursuit of art. Check out my <a className='league-p-clickable' href="#Projects">Projects</a> section for more holistic descriptions of what I'm producing.
-                        <br></br>
-                        <br></br>
-                        Check out some of my longer thoughts on my <a className='league-p-clickable' href="https://markbacon78.wordpress.com/">WordPress Blog</a> has insights and thoughts about what I'm working on. And sometimes just the world, or reality itself. You can also find me on <a className='league-p-clickable' href="https://bsky.app/profile/dendrobyte.bsky.social">BlueSky (@dendrobyte.bsky.social)</a> sharing my thoughts with the void as well as development updates on my latest game prototype.</p>
-                        <br></br>
-                    </div>
                     <div className='blue-bubble self-pictures'>
                         <div className='self-picture-item'>
                             <img src={real_self_img} alt='The Real Me'></img>
@@ -39,19 +40,21 @@ function Home() {
                         
                     </div>
                 </div>
-                    <div className='blue-bubble'>
-                        <h1 className='blue-league-title'>In summary, I am</h1>
-                        <p className='gray-league-paragraph'>
-                            A storyteller,
-                            a backend software engineer,
-                            working on games,
-                            working on Harbinger,
-                            competing in BJJ,
-                            making YouTube videos,
-                            pursuing art.
-                            I have one virtue, eight values, and eight entities I surrender to (the 16 Hues).
-                            </p>
-                    </div>
+                <div className='blue-bubble who-am-i'>
+                    <h1 className='blue-league-title'>Who am I?</h1>
+                    <p className='gray-league-paragraph'>
+                    By day, I am a <span className='league-p-bold'>backend <a className='league-p-clickable' href="http://www.linkedin.com/in/markbacon78">Software Engineer</a></span> based in Seattle/ Check out my <a className='league-p-clickable' href="https://www.markobacon.com/now">/now</a> page to see what I'm working on currently
+                    <br></br>
+                    <br></br>
+                    I focus on <span className='league-p-bold'>building human-centric things</span> grounded in meticulous design and technical challenge. Through games and apps I <span className='league-p-bold'>connect users and work on thoughtful functionality</span>. I enjoy working on <span className='league-p-bold'>designing and implementing systems that make users' lives easier</span> and more manageable without getting caught up in the details. In games and through gamification, I seek to leverage multiplayer accountability and fun to bring people back into a world lacking connection- and often humanity.
+                    <br></br>
+                    <br></br>
+                    I compete in Brazilian Jiu Jitsu (blue belt), work on a variety of game development prototypes, keep up to date with linguistic research and philosophy papers, trail run, practice MMA, meditate, and continue the lifelong pursuit of art. Check out my <a className='league-p-clickable' href="#Projects">Projects</a> section for more holistic descriptions of what I'm producing.
+                    <br></br>
+                    <br></br>
+                    Check out some of my longer thoughts on my <a className='league-p-clickable' href="https://markbacon78.wordpress.com/">WordPress Blog</a> has insights and thoughts about what I'm working on. And sometimes just the world, or reality itself. You can also find me on <a className='league-p-clickable' href="https://bsky.app/profile/dendrobyte.bsky.social">BlueSky (@dendrobyte.bsky.social)</a> sharing my thoughts with the void as well as development updates on my latest game prototype.</p>
+                    <br></br>
+                </div>
                 <div className ='middle-bottom'>
                     <div className='blue-bubble'>
                         <Projects />

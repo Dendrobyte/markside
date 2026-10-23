@@ -13,7 +13,6 @@ function Now() {
                         This weekend, I'm at Lightbox and just one evening in I feel like I've found the people I need to surround myself with more often.
                     </p>
                 </div>
-            <div className='middle-column container-body-width'>
                 <div className='blue-bubble who-am-i'>
                     <h1 className='blue-league-title'>July 5, '26</h1>
                     <p className='gray-league-paragraph-large'>

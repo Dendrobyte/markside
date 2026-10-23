@@ -4,6 +4,17 @@ function Now() {
         <>  
             <div className='middle-column container-body-width'>
                 <div className='blue-bubble who-am-i'>
+                    <h1 className='blue-league-title'>Oct 22, '26</h1>
+                    <p className='gray-league-paragraph-large'>
+                        We're back to itch piloting, and I'm calling my unemployed a "creative sabbatical". Sleeper laid off a handful of people recently, myself one of them.
+
+                        I haven't felt much of a spark with programming lately, so I decided I'm going to take (at least) two months to work on my own endeavors.
+
+                        This weekend, I'm at Lightbox and just one evening in I feel like I've found the people I need to surround myself with more often.
+                    </p>
+                </div>
+            <div className='middle-column container-body-width'>
+                <div className='blue-bubble who-am-i'>
                     <h1 className='blue-league-title'>July 5, '26</h1>
                     <p className='gray-league-paragraph-large'>
                         I've just organized some thoughts and feeling more confident finding what I want going forward. Amongst existential angst wondering if I should go back to school for nursing or teaching, I'm realizing I want to spend my living and breathing time creating. Not consuming.<br></br>

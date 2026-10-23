@@ -13,15 +13,15 @@ function Home() {
                     <p className='gray-league-paragraph'>
                         A storyteller,
                         a backend software engineer,
-                        working on games,
-                        working on Harbinger,
+                        making <a className='league-p-clickable' href="https://www.youtube.com/markbacon78">YouTube videos</a>,
+                        designing <a className='league-p-clickable' href="https://dendrobyte.itch.io">games</a>,
+                        creating Project Harbinger,
                         competing in BJJ,
-                        making YouTube videos,
                         pursuing art.
                         I have one virtue, eight values, and eight entities I surrender to (the 16 Hues).
                         <br></br>
                         <br></br>
-                        Check out my projects and work below the longass description of myself :)
+                        Check out my projects, socials, and work below the longass description of myself :)
                         </p>
                 </div>
                 <div className='middle-flex-row'>
